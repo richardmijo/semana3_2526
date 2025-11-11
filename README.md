@@ -1,16 +1,17 @@
-# semana_3_2526
+# README Estudiante - Christian Salinas
 
-A new Flutter project.
+## Descripción de los cambios realizados
+Refactoricé completamente el `MainDrawer` del proyecto base creando un **widget reutilizable llamado `DrawerItem`** ubicado en:  
+`lib/features/ui_demo/presentation/widgets/drawer_item.dart`
 
-## Getting Started
+Luego reemplacé todos los `ListTile` directos dentro de `main_drawer.dart` por mi nuevo widget.  
+**Se usa el widget propio en 4 opciones diferentes** (más de las 3 mínimas pedidas).
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Diseño del widget propio DrawerItem
+```dart
+DrawerItem({
+  required IconData icon,
+  required String title,
+  String? subtitle,
+  required VoidCallback onTap,
+})
