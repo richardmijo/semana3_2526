@@ -4,7 +4,7 @@ Proyecto Flutter para practicar widgets y refactor del Drawer.
 
 ## MainDrawer y DrawerItem
 
-Se refactorizó el `MainDrawer` usando un widget propio llamado `DrawerItem` para reemplazar los `ListTile` directos. Esto permite:
+Se modifico el `MainDrawer` usando un widget propio llamado `DrawerItem` para reemplazar los `ListTile` directos. Esto permite:
 
 - Crear ítems reutilizables con icono, título, `onTap` y subtítulo opcional
 - Mantener el código más limpio y organizado
