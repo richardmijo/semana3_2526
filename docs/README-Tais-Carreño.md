@@ -6,4 +6,4 @@ El widget creado recibe ícono (IconData), título (Text), subtítulo (Text?) y 
 
 Entre las dificultades encontradas estuve la definición de parámatros con un determinado widget permitido, que fue solucionado con una búsqueda en foros de Flutter, así como el concepto de constructores. También hubo confusión en el elemento @override, que finalmente fue usado para definir la salida del widget (una instancia de LineTile).
 
-Entre las ideas de mejora a futuro está la implementación de métodos dentro de la clase del widget MenuDrawerItem que ofrezcan los eventos que regularmente se implementan en los elementos del drawer, estando un paso más cerca de la reutilización y conveniencia en la construcción del drawer.
+Entre las ideas de mejora a futuro está la implementación de métodos dentro de la clase del widget MenuDrawerItem que ofrezcan los eventos que regularmente se implementan en los elementos del drawer, estando un paso más cerca de la reutilización y conveniencia en la construcción del drawer. Por otro lado, sería apropiado modificar el tipo de widget que acepta el parámetro "accion", para así expandir las posibles acciones que pueden implementarse en el widget.
