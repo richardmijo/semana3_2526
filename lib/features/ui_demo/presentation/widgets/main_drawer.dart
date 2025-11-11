@@ -10,7 +10,7 @@ class MainDrawer extends StatelessWidget {
         children: [
           const UserAccountsDrawerHeader(
             accountName: Text('Estudiante UIDE'),
-            accountEmail: Text('estudiante@uide.edu.ec'),
+            accountEmail: Text('aicarpioya@uide.edu.ec'),
             currentAccountPicture: CircleAvatar(
               child: Icon(Icons.person),
             ),
