@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'drawer_item.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -9,16 +10,22 @@ class MainDrawer extends StatelessWidget {
       child: Column(
         children: [
           const UserAccountsDrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.green,
+            ),
             accountName: Text('Estudiante UIDE'),
             accountEmail: Text('estudiante@uide.edu.ec'),
             currentAccountPicture: CircleAvatar(
-              child: Icon(Icons.person),
+              backgroundColor: Colors.white,
+              child: Icon(Icons.person, size: 40, color: Colors.green),
             ),
           ),
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('Acerca de la demo'),
-            subtitle: const Text('Ver explicación de la app'),
+
+          // 🔹 Primer ítem con subtítulo
+          DrawerItem(
+            icon: Icons.info_outline,
+            title: 'Acerca de la demo',
+            subtitle: 'Ver explicación de la app',
             onTap: () {
               Navigator.of(context).pop();
               showAboutDialog(
@@ -34,11 +41,13 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
           const Divider(),
-          
-          ListTile(
-            leading: const Icon(Icons.code),
-            title: const Text('Ver documentación'),
+
+          // 🔹 Segundo ítem
+          DrawerItem(
+            icon: Icons.code,
+            title: 'Ver documentación',
             onTap: () {
               Navigator.of(context).pop();
               ScaffoldMessenger.of(context).showSnackBar(
@@ -48,9 +57,22 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
+          // 🔹 Tercer ítem
+          DrawerItem(
+            icon: Icons.contact_mail,
+            title: 'Contacto',
+            onTap: () {
+              Navigator.of(context).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Correo: estudiante@uide.edu.ec'),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
   }
 }
-// actividad
