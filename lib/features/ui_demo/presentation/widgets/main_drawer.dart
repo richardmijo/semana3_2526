@@ -21,10 +21,12 @@ class MainDrawer extends StatelessWidget {
             subtitulo: const Text('Ver información del estudiante'), 
             accion: () {
               Navigator.of(context).pop();
-              showAboutDialog(
-                context: context,
-                applicationName: 'Tais Carreño',
-              );
+              showDialog(
+                context: context, 
+                builder: (_) => AlertDialog(
+                  title: Text('Tais Carreño'),
+                  content: Text('Programación Móvil - '),
+              ));
             }
           ),
           MenuDrawerItem(
@@ -90,4 +92,5 @@ class MenuDrawerItem extends StatelessWidget{
             onTap: accion
           );
   }
+  
 }
