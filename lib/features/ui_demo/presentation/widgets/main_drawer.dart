@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'drawer_item.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -15,10 +16,12 @@ class MainDrawer extends StatelessWidget {
               child: Icon(Icons.person),
             ),
           ),
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('Acerca de la demo'),
-            subtitle: const Text('Ver explicación de la app'),
+
+          // Ítem 1: Acerca de la demo
+          DrawerItem(
+            icon: Icons.info_outline,
+            title: 'Acerca de la demo',
+            subtitle: 'Ver explicación de la app',
             onTap: () {
               Navigator.of(context).pop();
               showAboutDialog(
@@ -34,11 +37,13 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
           const Divider(),
-          
-          ListTile(
-            leading: const Icon(Icons.code),
-            title: const Text('Ver documentación'),
+
+          // Ítem 2: Ver documentación
+          DrawerItem(
+            icon: Icons.code,
+            title: 'Ver documentación',
             onTap: () {
               Navigator.of(context).pop();
               ScaffoldMessenger.of(context).showSnackBar(
@@ -48,9 +53,41 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
+          const Divider(),
+
+          // Ítem 3: Contacto
+          DrawerItem(
+            icon: Icons.contact_mail,
+            title: 'Contacto',
+            subtitle: 'Correo de soporte',
+            onTap: () {
+              Navigator.of(context).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Enviar correo a soporte@uide.edu.ec'),
+                ),
+              );
+            },
+          ),
+
+          const Divider(),
+
+          // Ítem 4: Ajustes (nuevo)
+          DrawerItem(
+            icon: Icons.settings,
+            title: 'Ajustes',
+            onTap: () {
+              Navigator.of(context).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Aquí podrías abrir la pantalla de ajustes.'),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
   }
 }
-// actividad
