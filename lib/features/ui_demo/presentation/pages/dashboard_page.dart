@@ -110,6 +110,14 @@ class _ComponentsList extends StatelessWidget {
           leading: Icon(Icons.color_lens),
           title: Text('Temas y colores'),
         ),
+        ListTile(
+          leading: Icon(Icons.image),
+          title: Text('Image.asset, Image.network'),
+        ),
+        ListTile(
+          leading: Icon(Icons.color_lens),
+          title: Text('Temas y colores'),
+        ),
         
       ],
     );

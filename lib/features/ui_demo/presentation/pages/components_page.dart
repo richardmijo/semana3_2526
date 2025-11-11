@@ -51,6 +51,7 @@ class ComponentsPage extends StatelessWidget {
         crossAxisSpacing: 8,
       ),
       itemCount: components.length,
+      // Recorrido de los elementos
       itemBuilder: (context, index) {
         final item = components[index];
         return GestureDetector(

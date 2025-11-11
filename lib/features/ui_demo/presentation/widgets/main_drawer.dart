@@ -15,11 +15,11 @@ class MainDrawer extends StatelessWidget {
               child: Icon(Icons.person),
             ),
           ),
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('Acerca de la demo'),
-            subtitle: const Text('Ver explicación de la app'),
-            onTap: () {
+          MenuDrawerItem(
+            icono: Icons.info_outline, 
+            titulo: const Text('Acerca de la demo'), 
+            subtitulo: const Text('Ver explicación de la app'), 
+            accion: () {
               Navigator.of(context).pop();
               showAboutDialog(
                 context: context,
@@ -32,14 +32,14 @@ class MainDrawer extends StatelessWidget {
                   ),
                 ],
               );
-            },
+            }
           ),
           const Divider(),
-          
-          ListTile(
-            leading: const Icon(Icons.code),
-            title: const Text('Ver documentación'),
-            onTap: () {
+
+          MenuDrawerItem(
+            icono: Icons.code,
+            titulo: const Text('Ver documentación'),
+            accion: () {
               Navigator.of(context).pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
@@ -48,9 +48,35 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
         ],
       ),
     );
   }
 }
 // actividad
+class MenuDrawerItem extends StatelessWidget{
+  final IconData icono;
+  final Text titulo;
+  Text? subtitulo;
+  final GestureTapCallback accion;
+
+  // Constructor
+  MenuDrawerItem({
+    required this.icono,
+    required this.titulo,
+    this.subtitulo,
+    required this.accion
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+            leading: Icon(icono),
+            title: titulo,
+            subtitle: subtitulo,
+            onTap: accion
+          );
+  }
+
+}
