@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'drawer_item.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -11,14 +12,13 @@ class MainDrawer extends StatelessWidget {
           const UserAccountsDrawerHeader(
             accountName: Text('Estudiante UIDE'),
             accountEmail: Text('estudiante@uide.edu.ec'),
-            currentAccountPicture: CircleAvatar(
-              child: Icon(Icons.person),
-            ),
+            currentAccountPicture: CircleAvatar(child: Icon(Icons.person)),
           ),
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('Acerca de la demo'),
-            subtitle: const Text('Ver explicación de la app'),
+
+          DrawerItem(
+            icon: Icons.info_outline,
+            title: 'Acerca de la demo',
+            subtitle: 'Ver explicación de la app',
             onTap: () {
               Navigator.of(context).pop();
               showAboutDialog(
@@ -27,18 +27,18 @@ class MainDrawer extends StatelessWidget {
                 applicationVersion: '1.0.0',
                 children: const [
                   Text(
-                    'Ejemplo para practicar widgets básicos de Flutter: '
-                    'Scaffold, layouts, recursos, temas y más.',
+                    'Ejemplo para practicar widgets básicos de Flutter: Scaffold, layouts, recursos, temas y más.',
                   ),
                 ],
               );
             },
           ),
+
           const Divider(),
-          
-          ListTile(
-            leading: const Icon(Icons.code),
-            title: const Text('Ver documentación'),
+
+          DrawerItem(
+            icon: Icons.code,
+            title: 'Ver documentación',
             onTap: () {
               Navigator.of(context).pop();
               ScaffoldMessenger.of(context).showSnackBar(
@@ -48,9 +48,20 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
+          DrawerItem(
+            icon: Icons.settings,
+            title: 'Configuración',
+            subtitle: 'Opciones avanzadas',
+            onTap: () {
+              Navigator.of(context).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Navegar a configuración')),
+              );
+            },
+          ),
         ],
       ),
     );
   }
 }
-// actividad
