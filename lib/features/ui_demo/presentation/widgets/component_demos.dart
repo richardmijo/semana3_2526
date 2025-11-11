@@ -14,12 +14,14 @@ class TextDemo extends StatelessWidget {
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
+            color: Colors.deepPurple,
           ),
         ),
         SizedBox(height: 8),
         Text(
           'Este es un texto con estilo personalizado, con color, tamaño y peso definidos.',
           textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.deepPurpleAccent),
         ),
       ],
     );
@@ -37,20 +39,32 @@ class ButtonsDemo extends StatelessWidget {
       alignment: WrapAlignment.center,
       children: [
         ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.deepPurple,
+            foregroundColor: Colors.white,
+          ),
           onPressed: () {},
           child: const Text('ElevatedButton'),
         ),
         OutlinedButton(
+          style: OutlinedButton.styleFrom(
+            foregroundColor: Colors.deepPurple,
+            side: const BorderSide(color: Colors.deepPurple),
+          ),
           onPressed: () {},
           child: const Text('OutlinedButton'),
         ),
         TextButton(
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.deepPurpleAccent,
+          ),
           onPressed: () {},
           child: const Text('TextButton'),
         ),
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.thumb_up),
+          color: Colors.deepPurple,
+          icon: const Icon(Icons.favorite),
         ),
       ],
     );
@@ -76,11 +90,19 @@ class _InputsDemoState extends State<InputsDemo> {
           controller: _controller,
           decoration: const InputDecoration(
             labelText: 'Escribe tu nombre',
+            labelStyle: TextStyle(color: Colors.deepPurple),
             border: OutlineInputBorder(),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.deepPurple),
+            ),
           ),
         ),
         const SizedBox(height: 8),
         ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.deepPurple,
+            foregroundColor: Colors.white,
+          ),
           onPressed: () {
             setState(() {
               _value = _controller.text;
@@ -90,7 +112,8 @@ class _InputsDemoState extends State<InputsDemo> {
         ),
         const SizedBox(height: 8),
         Text(
-          _value.isEmpty ? 'Sin valor' : 'Hola, $_value',
+          _value.isEmpty ? 'Sin valor' : 'Hola, $_value 💜',
+          style: const TextStyle(color: Colors.deepPurpleAccent),
         ),
       ],
     );
@@ -104,7 +127,8 @@ class LayoutDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Text('Row + Expanded + Wrap'),
+        const Text('Row + Expanded + Wrap',
+            style: TextStyle(color: Colors.deepPurple)),
         const SizedBox(height: 8),
         Row(
           children: [
@@ -112,7 +136,7 @@ class LayoutDemo extends StatelessWidget {
               flex: 4,
               child: Container(
                 height: 50,
-                color: Colors.indigo.shade100,
+                color: Colors.purple.shade100,
                 child: const Center(child: Text('Expanded 1')),
               ),
             ),
@@ -120,7 +144,7 @@ class LayoutDemo extends StatelessWidget {
             Expanded(
               child: Container(
                 height: 50,
-                color: Colors.indigo.shade200,
+                color: Colors.purple.shade200,
                 child: const Center(child: Text('Expanded 2')),
               ),
             ),
@@ -131,7 +155,10 @@ class LayoutDemo extends StatelessWidget {
           spacing: 4,
           children: List.generate(
             6,
-            (index) => Chip(label: Text('Chip $index')),
+            (index) => Chip(
+              label: Text('Chip $index'),
+              backgroundColor: Colors.purple.shade100,
+            ),
           ),
         ),
       ],
@@ -150,7 +177,7 @@ class StackDemo extends StatelessWidget {
         Container(
           width: 200,
           height: 200,
-          color: Colors.indigo.shade100,
+          color: Colors.purple.shade100,
         ),
         Positioned(
           top: 10,
@@ -158,7 +185,7 @@ class StackDemo extends StatelessWidget {
           child: Container(
             width: 80,
             height: 80,
-            color: Colors.indigo.shade300,
+            color: Colors.purple.shade300,
           ),
         ),
         const Positioned(
@@ -170,7 +197,8 @@ class StackDemo extends StatelessWidget {
             color: Colors.amber,
           ),
         ),
-        const Text('Stack con Positioned'),
+        const Text('Stack con Positioned',
+            style: TextStyle(color: Colors.deepPurple)),
       ],
     );
   }
@@ -183,7 +211,8 @@ class ListGridDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Text('ListView horizontal + GridView'),
+        const Text('ListView horizontal + GridView',
+            style: TextStyle(color: Colors.deepPurple)),
         const SizedBox(height: 8),
         SizedBox(
           height: 60,
@@ -192,7 +221,7 @@ class ListGridDemo extends StatelessWidget {
             itemBuilder: (_, index) => Container(
               width: 60,
               alignment: Alignment.center,
-              color: Colors.indigo[100 * ((index % 8) + 1)],
+              color: Colors.purple[100 * ((index % 8) + 1)],
               child: Text('L$index'),
             ),
             separatorBuilder: (_, __) => const SizedBox(width: 4),
@@ -210,8 +239,8 @@ class ListGridDemo extends StatelessWidget {
             itemCount: 9,
             itemBuilder: (_, index) => Container(
               alignment: Alignment.center,
-              color: Colors.green[100 * ((index % 8) + 1)],
-              child: Text('G$index'),
+              color: Colors.purple[100 * ((index % 8) + 1)],
+              child: Text('💜 $index'),
             ),
           ),
         ),
@@ -221,7 +250,6 @@ class ListGridDemo extends StatelessWidget {
 }
 
 /// JSON de ejemplo para usar en ResourcesPage.
-/// (Lo reutilizamos aquí para no repetir código.)
 const String resourcesJson = '''
 [
   {"name": "icon_home", "type": "PNG"},

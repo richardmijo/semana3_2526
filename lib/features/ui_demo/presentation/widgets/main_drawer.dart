@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../../../widgets/drawer_item.dart';
+import '../pages/resources_page.dart';
+import '../pages/theme_preview_page.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -9,18 +12,27 @@ class MainDrawer extends StatelessWidget {
       child: Column(
         children: [
           const UserAccountsDrawerHeader(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xFF006E5F), Color(0xFF00A389)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+            ),
             accountName: Text('Estudiante UIDE'),
             accountEmail: Text('estudiante@uide.edu.ec'),
             currentAccountPicture: CircleAvatar(
-              child: Icon(Icons.person),
+              backgroundColor: Colors.white,
+              child: Icon(Icons.person, color: Color(0xFF006E5F)),
             ),
           ),
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('Acerca de la demo'),
-            subtitle: const Text('Ver explicación de la app'),
+
+          // 1) Acerca de la demo
+          DrawerItem(
+            icon: Icons.info_outline,
+            title: 'Acerca de la demo',
+            subtitle: 'Ver explicación de la app',
             onTap: () {
-              Navigator.of(context).pop();
               showAboutDialog(
                 context: context,
                 applicationName: 'UI Demo Flutter',
@@ -34,18 +46,42 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
           const Divider(),
-          
-          ListTile(
-            leading: const Icon(Icons.code),
-            title: const Text('Ver documentación'),
+
+          // 2) Temas y Colores (reemplaza "Ver documentación")
+          DrawerItem(
+            icon: Icons.palette_outlined,
+            title: 'Temas y Colores',
+            subtitle: 'Vista previa del diseño',
             onTap: () {
-              Navigator.of(context).pop();
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Aquí podrías abrir una pantalla de ayuda.'),
-                ),
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const ThemePreviewPage()),
               );
+            },
+          ),
+
+          // 3) Galería de recursos
+          DrawerItem(
+            icon: Icons.photo_library_outlined,
+            title: 'Galería de recursos',
+            subtitle: 'Ver imágenes y estilos',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const ResourcesPage()),
+              );
+            },
+          ),
+
+          // 4) Inicio
+          DrawerItem(
+            icon: Icons.home_outlined,
+            title: 'Inicio',
+            subtitle: 'Volver a la pantalla principal',
+            onTap: () {
+              Navigator.pushNamed(context, '/');
             },
           ),
         ],
@@ -53,4 +89,3 @@ class MainDrawer extends StatelessWidget {
     );
   }
 }
-// actividad
