@@ -6,16 +6,13 @@ class AppTheme {
       colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
       useMaterial3: true,
       textTheme: const TextTheme(
-        headlineMedium: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-        ),
+        headlineMedium: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         bodyMedium: TextStyle(fontSize: 14),
       ),
     );
   }
 
-static ThemeData get fixedLightTheme {
+  static ThemeData get fixedLightTheme {
     final base = ThemeData(
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(
@@ -50,16 +47,9 @@ static ThemeData get fixedLightTheme {
           fontSize: 24,
           fontWeight: FontWeight.w700,
         ),
-        titleLarge: const TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
-        ),
-        bodyLarge: const TextStyle(
-          fontSize: 16,
-        ),
-        bodyMedium: const TextStyle(
-          fontSize: 14,
-        ),
+        titleLarge: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+        bodyLarge: const TextStyle(fontSize: 16),
+        bodyMedium: const TextStyle(fontSize: 14),
         labelLarge: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w600,
@@ -78,33 +68,22 @@ static ThemeData get fixedLightTheme {
           fontSize: 20,
           fontWeight: FontWeight.w700,
         ),
-        iconTheme: IconThemeData(
-          color: Colors.red.shade700,
-          size: 22,
-        ),
+        iconTheme: IconThemeData(color: Colors.red.shade700, size: 22),
       ),
 
       // Iconos globales
-      iconTheme: IconThemeData(
-        color: Colors.red.shade600,
-        size: 22,
-      ),
+      iconTheme: IconThemeData(color: Colors.red.shade600, size: 22),
 
       // Botones elevados
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.red.shade700,
           foregroundColor: Colors.white,
-          textStyle: const TextStyle(
-            fontWeight: FontWeight.w600,
-          ),
+          textStyle: const TextStyle(fontWeight: FontWeight.w600),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          padding: const EdgeInsets.symmetric(
-            horizontal: 20,
-            vertical: 12,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         ),
       ),
 
@@ -112,9 +91,7 @@ static ThemeData get fixedLightTheme {
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           foregroundColor: Colors.red.shade700,
-          textStyle: const TextStyle(
-            fontWeight: FontWeight.w500,
-          ),
+          textStyle: const TextStyle(fontWeight: FontWeight.w500),
         ),
       ),
 
@@ -122,10 +99,7 @@ static ThemeData get fixedLightTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: Colors.red.shade700,
-          side: BorderSide(
-            color: Colors.red.shade300,
-            width: 1.5,
-          ),
+          side: BorderSide(color: Colors.red.shade300, width: 1.5),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
@@ -136,9 +110,7 @@ static ThemeData get fixedLightTheme {
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: Colors.red.shade700,
         foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
 
       // Campos de texto / formularios
@@ -149,59 +121,35 @@ static ThemeData get fixedLightTheme {
           horizontal: 16,
           vertical: 12,
         ),
-        labelStyle: TextStyle(
-          color: Colors.grey.shade700,
-        ),
-        hintStyle: TextStyle(
-          color: Colors.grey.shade400,
-          fontSize: 13,
-        ),
+        labelStyle: TextStyle(color: Colors.grey.shade700),
+        hintStyle: TextStyle(color: Colors.grey.shade400, fontSize: 13),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(
-            color: Colors.grey.shade300,
-          ),
+          borderSide: BorderSide(color: Colors.grey.shade300),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(
-            color: Colors.red.shade600,
-            width: 1.8,
-          ),
+          borderSide: BorderSide(color: Colors.red.shade600, width: 1.8),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(
-            color: Colors.red.shade800,
-            width: 1.8,
-          ),
+          borderSide: BorderSide(color: Colors.red.shade800, width: 1.8),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(
-            color: Colors.red.shade800,
-            width: 2,
-          ),
+          borderSide: BorderSide(color: Colors.red.shade800, width: 2),
         ),
       ),
 
-      
-
       // ListTile
       listTileTheme: ListTileThemeData(
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 4,
-        ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
         iconColor: Colors.red.shade500,
         titleTextStyle: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w500,
         ),
-        subtitleTextStyle: TextStyle(
-          fontSize: 12,
-          color: Colors.grey.shade600,
-        ),
+        subtitleTextStyle: TextStyle(fontSize: 12, color: Colors.grey.shade600),
       ),
 
       // Chip
@@ -214,18 +162,11 @@ static ThemeData get fixedLightTheme {
           fontSize: 12,
           fontWeight: FontWeight.w500,
         ),
-        secondaryLabelStyle: const TextStyle(
-          color: Colors.white,
-        ),
-        padding: const EdgeInsets.symmetric(
-          horizontal: 10,
-          vertical: 4,
-        ),
+        secondaryLabelStyle: const TextStyle(color: Colors.white),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
-          side: BorderSide(
-            color: Colors.red.shade200,
-          ),
+          side: BorderSide(color: Colors.red.shade200),
         ),
       ),
 
@@ -243,14 +184,9 @@ static ThemeData get fixedLightTheme {
       // SnackBar
       snackBarTheme: SnackBarThemeData(
         backgroundColor: Colors.grey.shade900,
-        contentTextStyle: const TextStyle(
-          color: Colors.white,
-          fontSize: 14,
-        ),
+        contentTextStyle: const TextStyle(color: Colors.white, fontSize: 14),
         behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
 
       // Divider
@@ -262,14 +198,11 @@ static ThemeData get fixedLightTheme {
 
       // Estilo por defecto de scrollbar (útil para web/desktop)
       scrollbarTheme: ScrollbarThemeData(
-        thumbVisibility: MaterialStateProperty.all(true),
-        thickness: MaterialStateProperty.all(6),
+        thumbVisibility: WidgetStateProperty.all(true),
+        thickness: WidgetStateProperty.all(6),
         radius: const Radius.circular(12),
-        thumbColor: MaterialStateProperty.all(
-          Colors.red.shade200,
-        ),
+        thumbColor: WidgetStateProperty.all(Colors.red.shade200),
       ),
     );
   }
-
 }

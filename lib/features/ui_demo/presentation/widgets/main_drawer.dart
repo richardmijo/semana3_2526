@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/drawer_item_widget.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -11,14 +12,12 @@ class MainDrawer extends StatelessWidget {
           const UserAccountsDrawerHeader(
             accountName: Text('Estudiante UIDE'),
             accountEmail: Text('estudiante@uide.edu.ec'),
-            currentAccountPicture: CircleAvatar(
-              child: Icon(Icons.person),
-            ),
+            currentAccountPicture: CircleAvatar(child: Icon(Icons.person)),
           ),
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('Acerca de la demo'),
-            subtitle: const Text('Ver explicación de la app'),
+          DrawerItemWidget(
+            icono: Icons.info_outline,
+            titulo: 'Acerca de la Demo',
+            subtitulo: 'Ver explicacion de la app',
             onTap: () {
               Navigator.of(context).pop();
               showAboutDialog(
@@ -35,10 +34,10 @@ class MainDrawer extends StatelessWidget {
             },
           ),
           const Divider(),
-          
-          ListTile(
-            leading: const Icon(Icons.code),
-            title: const Text('Ver documentación'),
+
+          DrawerItemWidget(
+            icono: Icons.code,
+            titulo: 'Ver documentacion',
             onTap: () {
               Navigator.of(context).pop();
               ScaffoldMessenger.of(context).showSnackBar(
@@ -53,4 +52,5 @@ class MainDrawer extends StatelessWidget {
     );
   }
 }
+
 // actividad

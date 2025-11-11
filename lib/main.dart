@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'core/theme/app_theme.dart';
 import 'features/ui_demo/presentation/pages/ui_demo_home.dart';
 
 void main() {
