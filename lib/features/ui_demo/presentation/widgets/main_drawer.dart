@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../widgets/drawer_item.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -11,16 +12,14 @@ class MainDrawer extends StatelessWidget {
           const UserAccountsDrawerHeader(
             accountName: Text('Estudiante UIDE'),
             accountEmail: Text('estudiante@uide.edu.ec'),
-            currentAccountPicture: CircleAvatar(
-              child: Icon(Icons.person),
-            ),
+            currentAccountPicture: CircleAvatar(child: Icon(Icons.person)),
           ),
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('Acerca de la demo'),
-            subtitle: const Text('Ver explicación de la app'),
+
+          DrawerItem(
+            icon: Icons.info_outline,
+            title: 'Acerca de la demo',
+            subtitle: 'Ver explicación de la app',
             onTap: () {
-              Navigator.of(context).pop();
               showAboutDialog(
                 context: context,
                 applicationName: 'UI Demo Flutter',
@@ -34,13 +33,15 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
           const Divider(),
-          
-          ListTile(
-            leading: const Icon(Icons.code),
-            title: const Text('Ver documentación'),
+
+          //
+          DrawerItem(
+            icon: Icons.code,
+            title: 'Ver documentación',
+            subtitle: 'Información adicional',
             onTap: () {
-              Navigator.of(context).pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text('Aquí podrías abrir una pantalla de ayuda.'),
@@ -48,9 +49,18 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
+          //
+          DrawerItem(
+            icon: Icons.home,
+            title: 'Inicio',
+            subtitle: 'Volver a la pantalla principal',
+            onTap: () {
+              Navigator.pushNamed(context, '/');
+            },
+          ),
         ],
       ),
     );
   }
 }
-// actividad
