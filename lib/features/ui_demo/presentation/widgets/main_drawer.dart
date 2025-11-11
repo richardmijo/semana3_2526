@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '/widgetss/drawer_item.dart';
+import '/widgetss/info_card.dart'; // 👈 Importa tu InfoCard
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -15,10 +17,12 @@ class MainDrawer extends StatelessWidget {
               child: Icon(Icons.person),
             ),
           ),
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('Acerca de la demo'),
-            subtitle: const Text('Ver explicación de la app'),
+
+          // Primer ítem con subtítulo
+          DrawerItem(
+            icon: Icons.info_outline,
+            title: 'Acerca de la demo',
+            subtitle: 'Ver explicación de la app',
             onTap: () {
               Navigator.of(context).pop();
               showAboutDialog(
@@ -34,11 +38,13 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
           const Divider(),
-          
-          ListTile(
-            leading: const Icon(Icons.code),
-            title: const Text('Ver documentación'),
+
+          // Segundo ítem sin subtítulo
+          DrawerItem(
+            icon: Icons.code,
+            title: 'Ver documentación',
             onTap: () {
               Navigator.of(context).pop();
               ScaffoldMessenger.of(context).showSnackBar(
@@ -48,9 +54,24 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
+          // Tercer ítem adicional
+          DrawerItem(
+            icon: Icons.settings,
+            title: 'Configuración',
+            subtitle: 'Preferencias y ajustes',
+            onTap: () {
+              Navigator.of(context).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Pantalla de configuración en desarrollo.'),
+                ),
+              );
+            },
+          ),
+          const InfoCard(),
         ],
       ),
     );
   }
 }
-// actividad
