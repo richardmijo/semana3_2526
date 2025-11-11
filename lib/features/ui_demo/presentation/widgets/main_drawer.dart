@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
+// 1. Importar el nuevo widget
+import 'drawer_menu_item.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
+
+  // Función de ejemplo para el tercer item
+  void _showMessage(BuildContext context) {
+    Navigator.of(context).pop();
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('¡Opción de Ajustes seleccionada!'),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +27,13 @@ class MainDrawer extends StatelessWidget {
               child: Icon(Icons.person),
             ),
           ),
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('Acerca de la demo'),
-            subtitle: const Text('Ver explicación de la app'),
+          
+          // *************** ÍTEM 1: Usando DrawerMenuItem ***************
+          DrawerMenuItem(
+            icon: Icons.info_outline,
+            title: 'Acerca de la demo',
+            // El subtítulo es Opcional, lo enviamos aquí
+            subtitle: 'Ver explicación de la app', 
             onTap: () {
               Navigator.of(context).pop();
               showAboutDialog(
@@ -36,9 +51,11 @@ class MainDrawer extends StatelessWidget {
           ),
           const Divider(),
           
-          ListTile(
-            leading: const Icon(Icons.code),
-            title: const Text('Ver documentación'),
+          // *************** ÍTEM 2: Usando DrawerMenuItem ***************
+          DrawerMenuItem(
+            icon: Icons.code,
+            title: 'Ver documentación',
+            // Aquí NO enviamos el subtítulo para mostrar el caso opcional
             onTap: () {
               Navigator.of(context).pop();
               ScaffoldMessenger.of(context).showSnackBar(
@@ -48,9 +65,16 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+          
+          // *************** ÍTEM 3: Usando DrawerMenuItem ***************
+          DrawerMenuItem(
+            icon: Icons.settings,
+            title: 'Ajustes',
+            subtitle: 'Configuración general',
+            onTap: () => _showMessage(context), // Usamos la función de ejemplo
+          ),
         ],
       ),
     );
   }
 }
-// actividad
