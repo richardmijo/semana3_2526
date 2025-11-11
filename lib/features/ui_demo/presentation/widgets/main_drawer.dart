@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../widgets/drawer_item_widget.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -14,10 +13,12 @@ class MainDrawer extends StatelessWidget {
             accountEmail: Text('estudiante@uide.edu.ec'),
             currentAccountPicture: CircleAvatar(child: Icon(Icons.person)),
           ),
+
+          // Ítem con subtítulo
           DrawerItemWidget(
             icono: Icons.info_outline,
             titulo: 'Acerca de la Demo',
-            subtitulo: 'Ver explicacion de la app',
+            subtitulo: 'Ver explicación de la app',
             onTap: () {
               Navigator.of(context).pop();
               showAboutDialog(
@@ -33,11 +34,13 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
           const Divider(),
 
+          // Ítem sin subtítulo
           DrawerItemWidget(
             icono: Icons.code,
-            titulo: 'Ver documentacion',
+            titulo: 'Ver documentación',
             onTap: () {
               Navigator.of(context).pop();
               ScaffoldMessenger.of(context).showSnackBar(
@@ -53,4 +56,28 @@ class MainDrawer extends StatelessWidget {
   }
 }
 
-// actividad
+// Actividad
+class DrawerItemWidget extends StatelessWidget {
+  final IconData icono; // Icono del item
+  final String titulo; // Texto principal
+  final String? subtitulo; // Texto secundario opcional
+  final VoidCallback onTap; // Acción al tocar el item
+
+  const DrawerItemWidget({
+    super.key,
+    required this.icono,
+    required this.titulo,
+    required this.onTap,
+    this.subtitulo,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(icono),
+      title: Text(titulo),
+      subtitle: subtitulo != null ? Text(subtitulo!) : null,
+      onTap: onTap,
+    );
+  }
+}
