@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'drawer_item.dart'; 
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -15,10 +16,11 @@ class MainDrawer extends StatelessWidget {
               child: Icon(Icons.person),
             ),
           ),
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('Acerca de la demo'),
-            subtitle: const Text('Ver explicación de la app'),
+          
+          DrawerItem(
+            icon: Icons.info_outline,
+            title: 'Acerca de la demo',
+            subtitle: 'Ver explicación de la app',
             onTap: () {
               Navigator.of(context).pop();
               showAboutDialog(
@@ -34,11 +36,12 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
           const Divider(),
-          
-          ListTile(
-            leading: const Icon(Icons.code),
-            title: const Text('Ver documentación'),
+
+          DrawerItem(
+            icon: Icons.code,
+            title: 'Ver documentación',
             onTap: () {
               Navigator.of(context).pop();
               ScaffoldMessenger.of(context).showSnackBar(
@@ -48,9 +51,24 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
+          const Divider(),
+
+          DrawerItem(
+            icon: Icons.exit_to_app,
+            title: 'Cerrar sesión',
+            subtitle: 'Salir de la aplicación',
+            onTap: () {
+              Navigator.of(context).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Sesión cerrada correctamente.'),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
   }
 }
-// actividad
