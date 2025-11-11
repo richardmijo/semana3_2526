@@ -1,16 +1,11 @@
-# semana_3_2526
+# README – Mateo Merchán
 
-A new Flutter project.
+En esta práctica trabajé sobre el proyecto de Flutter de la semana 3, siguiendo el flujo de Git solicitado. Primero cloné el repositorio desde GitHub, creé mi branch personal con el formato `feature/tais-carreno` y ejecuté la aplicación en un emulador para asegurarme de que funcionara correctamente antes de modificar el código. A partir de ese momento, todos los cambios de refactor y documentación los realicé únicamente en mi rama.
 
-## Getting Started
+La parte principal de la implementación se centró en el Drawer de la aplicación, en el archivo donde se define `MainDrawer`. En la versión original, cada opción del menú estaba construida directamente con `ListTile`. Para mejorar la organización del código, creé un widget propio llamado `MenuDrawerItem` en un archivo separado dentro de una carpeta de widgets. Luego reemplacé los `ListTile` del Drawer por este nuevo widget, usándolo en opciones como “Información de usuario”, “Acerca de la demo” y “Ver documentación”, manteniendo el mismo comportamiento de mostrar diálogos o mensajes y cerrando el Drawer antes de cada acción.
 
-This project is a starting point for a Flutter application.
+El widget `MenuDrawerItem` es un `StatelessWidget` que recibe como parámetros obligatorios un ícono, un título en forma de texto y una función que se ejecuta al tocar el ítem, además de un subtítulo opcional que solo se muestra cuando se envía. Internamente construye un `ListTile` usando estos valores, lo que permite reutilizar la misma estructura para distintas opciones del menú. Elegí este diseño porque separa la forma en que se ve el ítem del Drawer de la lógica que se ejecuta al tocarlo, y facilita agregar nuevas opciones sin duplicar código.
 
-A few resources to get you started if this is your first Flutter project:
+Usar un widget propio en lugar de `ListTile` directo hace que el archivo de `MainDrawer` sea más limpio y fácil de leer, ya que cada opción del Drawer se reduce a una sola línea con icono, título, subtítulo y acción. Además, si en el futuro se quiere cambiar el estilo de todos los ítems (por ejemplo, colores, tamaños o la forma del `ListTile`), basta con modificar `MenuDrawerItem` en un solo lugar. Durante la implementación, uno de los pequeños problemas que encontré fue ajustar correctamente los imports al mover el widget a otro archivo y manejar el subtítulo como parámetro opcional; lo resolví revisando la estructura de carpetas y usando la sintaxis de tipos nulos (`String?`) para mostrar el subtítulo solo cuando existe.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Como posibles mejoras futuras, se podría extender `MenuDrawerItem` para mostrar el ítem actualmente seleccionado con un estilo diferente, integrar mejor los colores con el tema de la aplicación o añadir indicadores adicionales como contadores o iconos secundarios. En general, esta actividad me ayudó a reforzar el uso de ramas en Git, el flujo de cambios con commit y push, y la importancia de diseñar widgets reutilizables en Flutter para mantener un código más ordenado, modular y fácil de mantener.

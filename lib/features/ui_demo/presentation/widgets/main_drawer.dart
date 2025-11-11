@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:semana_3_2526/features/ui_demo/presentation/widgets/menu_drawer_item.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -15,11 +16,25 @@ class MainDrawer extends StatelessWidget {
               child: Icon(Icons.person),
             ),
           ),
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('Acerca de la demo'),
-            subtitle: const Text('Ver explicación de la app'),
-            onTap: () {
+
+          MenuDrawerItem(
+            icono: Icons.person,
+            titulo: 'Información de usuario',
+            subtitulo: 'Ver información del estudiante',
+            accion: () {
+              Navigator.of(context).pop();
+              showAboutDialog(
+                context: context,
+                applicationName: 'Mateo Merchán',
+              );
+            },
+          ),
+
+          MenuDrawerItem(
+            icono: Icons.info_outline,
+            titulo: 'Acerca de la demo',
+            subtitulo: 'Ver explicación de la app',
+            accion: () {
               Navigator.of(context).pop();
               showAboutDialog(
                 context: context,
@@ -34,12 +49,13 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
           const Divider(),
-          
-          ListTile(
-            leading: const Icon(Icons.code),
-            title: const Text('Ver documentación'),
-            onTap: () {
+
+          MenuDrawerItem(
+            icono: Icons.code,
+            titulo: 'Ver documentación',
+            accion: () {
               Navigator.of(context).pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
@@ -53,4 +69,3 @@ class MainDrawer extends StatelessWidget {
     );
   }
 }
-// actividad
