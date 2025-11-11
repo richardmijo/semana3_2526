@@ -16,6 +16,18 @@ class MainDrawer extends StatelessWidget {
             ),
           ),
           MenuDrawerItem(
+            icono: Icons.person, 
+            titulo: const Text('Información de usuario'), 
+            subtitulo: const Text('Ver información del estudiante'), 
+            accion: () {
+              Navigator.of(context).pop();
+              showAboutDialog(
+                context: context,
+                applicationName: 'Tais Carreño',
+              );
+            }
+          ),
+          MenuDrawerItem(
             icono: Icons.info_outline, 
             titulo: const Text('Acerca de la demo'), 
             subtitulo: const Text('Ver explicación de la app'), 
@@ -78,5 +90,4 @@ class MenuDrawerItem extends StatelessWidget{
             onTap: accion
           );
   }
-
 }
