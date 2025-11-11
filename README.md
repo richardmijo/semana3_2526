@@ -1,16 +1,30 @@
-# semana_3_2526
+# Implementación del Drawer
 
-A new Flutter project.
+Proyecto Flutter para practicar widgets y refactor del Drawer.
 
-## Getting Started
+## MainDrawer y DrawerItem
 
-This project is a starting point for a Flutter application.
+Se refactorizó el `MainDrawer` usando un widget propio llamado `DrawerItem` para reemplazar los `ListTile` directos. Esto permite:
 
-A few resources to get you started if this is your first Flutter project:
+- Crear ítems reutilizables con icono, título, `onTap` y subtítulo opcional
+- Mantener el código más limpio y organizado
+- Garantizar consistencia en el diseño y comportamiento del Drawer
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Ítems del Drawer
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Actualmente el Drawer tiene 4 ítems usando `DrawerItem`:
+
+1. Acerca de la demo
+2. Ver documentación
+3. Contacto
+4. Ajustes
+
+Cada ítem mantiene su acción original, como mostrar diálogo o SnackBar.
+
+## Aprendizaje
+
+Con este ejercicio aprendí a:
+
+- Crear widgets reutilizables
+- Mejorar la estructura del código
+- Resolver problemas como parámetros opcionales y acciones de los ítems
