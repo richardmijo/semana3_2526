@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'drawer_item.dart'; // Import del nuevo widget
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
@@ -10,40 +11,51 @@ class MainDrawer extends StatelessWidget {
         children: [
           const UserAccountsDrawerHeader(
             accountName: Text('Estudiante UIDE'),
-            accountEmail: Text('estudiante@uide.edu.ec'),
+            accountEmail: Text('sechochosi@uide.edu.ec'),
             currentAccountPicture: CircleAvatar(
               child: Icon(Icons.person),
             ),
           ),
-          ListTile(
-            leading: const Icon(Icons.info_outline),
-            title: const Text('Acerca de la demo'),
-            subtitle: const Text('Ver explicación de la app'),
+          DrawerItem(
+            icon: Icons.info_outline,
+            title: 'Acerca de la demo',
             onTap: () {
               Navigator.of(context).pop();
               showAboutDialog(
                 context: context,
                 applicationName: 'UI Demo Flutter',
-                applicationVersion: '1.0.0',
+                applicationVersion: '2.0.0',
                 children: const [
                   Text(
-                    'Ejemplo para practicar widgets básicos de Flutter: '
-                    'Scaffold, layouts, recursos, temas y más.',
+                    'Actividad No 2 (Individual) '
                   ),
                 ],
               );
             },
           ),
           const Divider(),
-          
-          ListTile(
-            leading: const Icon(Icons.code),
-            title: const Text('Ver documentación'),
+          DrawerItem(
+            icon: Icons.code,
+            title: 'Ver documentación',
             onTap: () {
               Navigator.of(context).pop();
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
-                  content: Text('Aquí podrías abrir una pantalla de ayuda.'),
+                  content: Text('[ Necesitas ayuda ]'),
+                ),
+              );
+            },
+          ),
+          const Divider(),
+          // Tercer ítem de ejemplo para cumplir con "al menos tres"
+          DrawerItem(
+            icon: Icons.settings,
+            title: 'Configuración',
+            onTap: () {
+              Navigator.of(context).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('[ Pantalla de configuración abierta ]'),
                 ),
               );
             },
@@ -53,4 +65,3 @@ class MainDrawer extends StatelessWidget {
     );
   }
 }
-// actividad
