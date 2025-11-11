@@ -22,8 +22,11 @@ class DrawerItem extends StatelessWidget {
       subtitle: subtitle == null ? null : Text(subtitle!),
       trailing: const Icon(Icons.chevron_right),
       onTap: () {
-        Navigator.of(context).pop(); // Cierra el Drawer
-        onTap();
+        // Cierra el Drawer
+        Navigator.of(context).pop();
+        // Ejecuta el callback en el siguiente frame (evita que se “pierda” el push)
+        WidgetsBinding.instance.addPostFrameCallback((_) => onTap());
+        // Alternativas: Future.microtask(onTap) o Future.delayed(Duration.zero, onTap)
       },
     );
   }
