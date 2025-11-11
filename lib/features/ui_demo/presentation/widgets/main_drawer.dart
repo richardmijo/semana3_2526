@@ -11,9 +11,7 @@ class MainDrawer extends StatelessWidget {
           const UserAccountsDrawerHeader(
             accountName: Text('Estudiante UIDE'),
             accountEmail: Text('estudiante@uide.edu.ec'),
-            currentAccountPicture: CircleAvatar(
-              child: Icon(Icons.person),
-            ),
+            currentAccountPicture: CircleAvatar(child: Icon(Icons.person)),
           ),
           ListTile(
             leading: const Icon(Icons.info_outline),
@@ -35,7 +33,7 @@ class MainDrawer extends StatelessWidget {
             },
           ),
           const Divider(),
-          
+
           ListTile(
             leading: const Icon(Icons.code),
             title: const Text('Ver documentación'),
@@ -54,3 +52,5 @@ class MainDrawer extends StatelessWidget {
   }
 }
 // actividad
+
+class ItemMenuDrawe {}
