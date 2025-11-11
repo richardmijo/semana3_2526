@@ -54,3 +54,36 @@ class MainDrawer extends StatelessWidget {
   }
 }
 // actividad
+class PerfilPage extends StatelessWidget {
+  const PerfilPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Perfil del Estudiante')),
+      body: const Center(
+        child: Text(
+          'Nombre: Anderson Calva\nCarrera: Ingeniería\nUniversidad: UIDE',
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 20),
+        ),
+      ),
+    );
+  }
+}
+class ConfigPage extends StatelessWidget {
+  const ConfigPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Configuración')),
+      body: const Center(
+        child: Text(
+          'Opciones de configuración próximamente...',
+          style: TextStyle(fontSize: 18),
+        ),
+      ),
+    );
+  }
+}

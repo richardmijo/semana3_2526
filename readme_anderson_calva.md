@@ -1,0 +1,10 @@
+# documentacion
+En esta actividad modifiqué el Drawer principal de la aplicación para aplicar buenas prácticas de Flutter creando un widget reutilizable. La parte del código que trabajé fue el archivo donde estaban definidos los ListTile del menú. En lugar de escribir cada opción directamente dentro del Drawer, creé un widget personalizado llamado DrawerItem y lo utilicé para construir las opciones del menú. Además, añadí una pantalla nueva llamada PerfilScreen para mostrar mis datos como estudiante y actualicé el encabezado del Drawer con mi nombre y correo institucional.
+
+El widget DrawerItem es un StatelessWidget que recibe un ícono, un título y una función para ejecutar cuando se toca el item. También tiene un subtítulo opcional que solo se muestra si se lo envía. Decidí estructurarlo así porque permite reutilizar el mismo diseño para cada opción del menú y evitar repetir código, haciendo el Drawer más limpio y fácil de mantener.
+
+Usar un widget propio en lugar de ListTile directos ofrece ventajas importantes, como mantener el código ordenado, facilitar futuras modificaciones y asegurar un estilo visual consistente en toda la aplicación. Si en algún momento se desea cambiar el diseño del menú, solo es necesario modificar el widget central y no cada item por separado.
+
+Durante el desarrollo tuve algunos inconvenientes, como que el emulador no mostraba los cambios y que Flutter no detectaba el dispositivo. Esto lo resolví ejecutando flutter clean, reiniciando el emulador y configurando el AVD desde Android Studio. También tuve errores de importación al mover archivos, pero revisé las rutas y lo solucioné.
+
+Finalmente, como mejoras futuras consideraría agregar animaciones, soporte para tema oscuro y más opciones en el Drawer como configuración o cierre de sesión. Esta práctica me ayudó a comprender mejor cómo organizar componentes en Flutter y la importancia de crear widgets reutilizables para mantener un código más profesional y escalable.
