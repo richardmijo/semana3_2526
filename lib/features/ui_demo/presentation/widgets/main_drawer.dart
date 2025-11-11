@@ -50,6 +50,23 @@ class MainDrawer extends StatelessWidget {
               );
             },
           ),
+
+          const Divider(),
+
+          // Tercer ítem
+          DrawerItemWidget(
+            icono: Icons.settings,
+            titulo: 'Configuración',
+            subtitulo: 'Ajustes de la aplicación',
+            onTap: () {
+              Navigator.of(context).pop();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Aquí iría la pantalla de configuración.'),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
