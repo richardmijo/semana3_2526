@@ -11,10 +11,7 @@ class TextDemo extends StatelessWidget {
       children: const [
         Text(
           'Título principal',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 8),
         Text(
@@ -36,22 +33,10 @@ class ButtonsDemo extends StatelessWidget {
       runSpacing: 8,
       alignment: WrapAlignment.center,
       children: [
-        ElevatedButton(
-          onPressed: () {},
-          child: const Text('ElevatedButton'),
-        ),
-        OutlinedButton(
-          onPressed: () {},
-          child: const Text('OutlinedButton'),
-        ),
-        TextButton(
-          onPressed: () {},
-          child: const Text('TextButton'),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.thumb_up),
-        ),
+        ElevatedButton(onPressed: () {}, child: const Text('ElevatedButton')),
+        OutlinedButton(onPressed: () {}, child: const Text('OutlinedButton')),
+        TextButton(onPressed: () {}, child: const Text('TextButton')),
+        IconButton(onPressed: () {}, icon: const Icon(Icons.thumb_up)),
       ],
     );
   }
@@ -89,9 +74,7 @@ class _InputsDemoState extends State<InputsDemo> {
           child: const Text('Aceptar'),
         ),
         const SizedBox(height: 8),
-        Text(
-          _value.isEmpty ? 'Sin valor' : 'Hola, $_value',
-        ),
+        Text(_value.isEmpty ? 'Sin valor' : 'Hola, $_value'),
       ],
     );
   }
@@ -147,11 +130,7 @@ class StackDemo extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        Container(
-          width: 200,
-          height: 200,
-          color: Colors.indigo.shade100,
-        ),
+        Container(width: 200, height: 200, color: Colors.indigo.shade100),
         Positioned(
           top: 10,
           left: 10,
@@ -164,11 +143,7 @@ class StackDemo extends StatelessWidget {
         const Positioned(
           bottom: 10,
           right: 10,
-          child: Icon(
-            Icons.star,
-            size: 40,
-            color: Colors.amber,
-          ),
+          child: Icon(Icons.star, size: 40, color: Colors.amber),
         ),
         const Text('Stack con Positioned'),
       ],
